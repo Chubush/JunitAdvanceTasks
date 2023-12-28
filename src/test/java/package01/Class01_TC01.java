@@ -35,7 +35,7 @@ public class Class01_TC01 extends TestBase {
         highlightElement(driver,otelTabi);
         Assert.assertTrue(otelTabi.isEnabled());
         logger.info("Ana sayfada otel tabının default geldiği kontrol edildi");
-        // 3-) "Nereye gideceksiniz" alanına dosyasından "Antalya" yazılır ve en üstteki Antalya seçeneğine tıklanır
+        // 4-) "Nereye gideceksiniz" alanına dosyasından "Antalya" yazılır ve en üstteki Antalya seçeneğine tıklanır
         WebElement nereyeGideceksinizTextBox = driver.findElement(By.xpath("//input[@placeholder='Otel Adı Veya Konum']"));
         nereyeGideceksinizTextBox.sendKeys("Antalya");
         nereyeGideceksinizTextBox.click();
@@ -51,7 +51,7 @@ public class Class01_TC01 extends TestBase {
         highlightElement(driver,tarihBolumu);
         jsClick(tarihBolumu);
         logger.info("Nereye gideceksiniz alanına dosyasından \"Antalya\" yazılır ve en üstteki Antalya seçeneğine tıklandı");
-        // 4-) Tarih alanına Nisan'in ilk haftası için bir haftalık aralık seçilir
+        // 5-) Tarih alanına Nisan'in ilk haftası için bir haftalık aralık seçilir
         WebElement sagaKaydır = driver.findElement(By.xpath("//button[@class='sc-8de9de7b-0 kCGMge sc-147d3380-2 cULZMP']//span[@class='sc-eb82d810-0 eClCrJ']//*[name()='svg']"));
         for (int i = 0; i < 3; i++) {
             jsClick(sagaKaydır);
@@ -67,7 +67,7 @@ public class Class01_TC01 extends TestBase {
        highlightElement(driver,yediNisan);
        yediNisan.click();
        logger.info("Tarih alanına Nisan'in ilk haftası için bir haftalık aralık seçildi");
-        // 5-) Yetişkin sayısı 1 artırılır ve yetişkin sayısının değiştiği kontrol edilir
+        // 6-) Yetişkin sayısı 1 artırılır ve yetişkin sayısının değiştiği kontrol edilir
       WebElement kacKisiKonaklayacaksınızText=driver.findElement(By.xpath("//span[@class='sc-b2c3f6ee-21 bSPwxV']"));
       highlightElement(driver,kacKisiKonaklayacaksınızText);
       kacKisiKonaklayacaksınızText.click();
@@ -80,16 +80,16 @@ public class Class01_TC01 extends TestBase {
         }
         logger.info("Yetişkin sayısı 1 artırılır ve yetişkin sayısının değiştiği kontrol edildi");
 
-        // 6-) "Ara" buton'nun görünürlüğü kontrol edilir
+        // 7-) "Ara" buton'nun görünürlüğü kontrol edilir
         WebElement araButton = driver.findElement(By.xpath("//span[normalize-space()='Ara']"));
         Assert.assertTrue(araButton.isDisplayed());
         jsClick(araButton);
         logger.info("\"Ara\" buton'nun görünürlüğü kontrol edildi");
-        // 7-) Açılan url içinde "antalya" kelimesi içerdiği kontrol edilir
-        waitForSecond(4);
+        // 8-) Açılan url içinde "antalya" kelimesi içerdiği kontrol edilir
+        waitForSecond(5);
         Assert.assertTrue(driver.getCurrentUrl().contains("antalya"));
 
-        // 8-) "Diğer bölgeleri göster" alanında rastgele tıklama metotu kullaılarak bir seçim yapılır ve "()" içerisinde bulunan sayı kaydedilir
+        // 9-) "Diğer bölgeleri göster" alanında rastgele tıklama metotu kullaılarak bir seçim yapılır ve "()" içerisinde bulunan sayı kaydedilir
       WebElement hepsiniGoster=driver.findElement(By.xpath("//div[@class='sc-aa1d9ceb-7 dVbmwW']"));
       highlightElement(driver,hepsiniGoster);
       hepsiniGoster.click();
@@ -108,7 +108,7 @@ public class Class01_TC01 extends TestBase {
         logger.info("\"Diğer bölgeleri göster\" alanında rastgele tıklama metotu kullaılarak bir seçim yapılır ve \"()\" içerisinde bulunan sayı kaydedildi");
 
         try {
-            // 9-) Sayfanın altına bulunan "Antalya Otelleri ve en Uygun Antalya Otel Fiyatları" alanına kadar ekranda kaydırma yapılır,
+            // 10-) Sayfanın altına bulunan "Antalya Otelleri ve en Uygun Antalya Otel Fiyatları" alanına kadar ekranda kaydırma yapılır,
             /*
             Her seferinde "uygunAntalyaOtelFiyatlari"  webelementi görülmediği için try catch statementini kullanmak durumunda kaldım
 
@@ -127,7 +127,7 @@ public class Class01_TC01 extends TestBase {
             String actualData = uygunOtelBilgilendirmeText.getText().split(" ")[9];
             System.out.println(actualData);
             logger.info("Sayfanın altına bulunan \"Antalya Otelleri ve en Uygun Antalya Otel Fiyatları\" alanına kadar ekranda kaydırma yapıldı");
-            // 10-) Kaydedilen değerin 8. adımda kaydedilen değerle eşit olduğu kontrol edilir.
+            // 11-) Kaydedilen değerin 8. adımda kaydedilen değerle eşit olduğu kontrol edilir.
             Assert.assertEquals(expectedData, actualData);
         } catch (Exception e) {
             System.out.println("Uygun antalya otel fiyatlari yazisi görülmedi");
