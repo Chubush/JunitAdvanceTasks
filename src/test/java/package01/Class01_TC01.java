@@ -15,6 +15,7 @@ import java.util.Random;
 public class Class01_TC01 extends TestBase {
 
     Logger logger = LogManager.getLogger(Class01_TC01.class);
+
     @Test
     public void test01() {
 
@@ -31,8 +32,8 @@ public class Class01_TC01 extends TestBase {
 
 
         // 3-) Ana sayfada otel tabının default geldiği kontrol edilir.
-        WebElement otelTabi=driver.findElement(By.xpath("//span[normalize-space()='Otel']"));
-        highlightElement(driver,otelTabi);
+        WebElement otelTabi = driver.findElement(By.xpath("//span[normalize-space()='Otel']"));
+        highlightElement(driver, otelTabi);
         Assert.assertTrue(otelTabi.isEnabled());
         logger.info("Ana sayfada otel tabının default geldiği kontrol edildi");
         // 4-) "Nereye gideceksiniz" alanına dosyasından "Antalya" yazılır ve en üstteki Antalya seçeneğine tıklanır
@@ -41,14 +42,14 @@ public class Class01_TC01 extends TestBase {
         nereyeGideceksinizTextBox.click();
         waitForSecond(3);
 
-        WebElement enUsttekiSehir=driver.findElement(By.xpath("//div[@class='sc-94dcce44-8 klLMJf']//div[1]//div[1]//div[1]"));
-        highlightElement(driver,enUsttekiSehir);
+        WebElement enUsttekiSehir = driver.findElement(By.xpath("//div[@class='sc-94dcce44-8 klLMJf']//div[1]//div[1]//div[1]"));
+        highlightElement(driver, enUsttekiSehir);
         jsClick(enUsttekiSehir);
 
 
         waitForSecond(2);
-        WebElement tarihBolumu=driver.findElement(By.xpath("(//span[@class='sc-fd984615-0 cdgkri'])[2]"));
-        highlightElement(driver,tarihBolumu);
+        WebElement tarihBolumu = driver.findElement(By.xpath("(//span[@class='sc-fd984615-0 cdgkri'])[2]"));
+        highlightElement(driver, tarihBolumu);
         jsClick(tarihBolumu);
         logger.info("Nereye gideceksiniz alanına dosyasından \"Antalya\" yazılır ve en üstteki Antalya seçeneğine tıklandı");
         // 5-) Tarih alanına Nisan'in ilk haftası için bir haftalık aralık seçilir
@@ -58,23 +59,23 @@ public class Class01_TC01 extends TestBase {
             waitForSecond(1);
         }
 
-        WebElement birNisan=driver.findElement(By.xpath("//td[@aria-label='Choose Pazartesi, 1 Nisan 2024 as your check-in date. It’s available.']//span[@class='sc-1720695c-0 kNqhKR'][normalize-space()='1']"));
-        highlightElement(driver,birNisan);
+        WebElement birNisan = driver.findElement(By.xpath("//td[@aria-label='Choose Pazartesi, 1 Nisan 2024 as your check-in date. It’s available.']//span[@class='sc-1720695c-0 kNqhKR'][normalize-space()='1']"));
+        highlightElement(driver, birNisan);
         birNisan.click();
         waitForSecond(1);
 
-       WebElement yediNisan=driver.findElement(By.xpath("//td[@aria-label='Choose Pazar, 7 Nisan 2024 as your check-out date. It’s available.']"));
-       highlightElement(driver,yediNisan);
-       yediNisan.click();
-       logger.info("Tarih alanına Nisan'in ilk haftası için bir haftalık aralık seçildi");
+        WebElement yediNisan = driver.findElement(By.xpath("//td[@aria-label='Choose Pazar, 7 Nisan 2024 as your check-out date. It’s available.']"));
+        highlightElement(driver, yediNisan);
+        yediNisan.click();
+        logger.info("Tarih alanına Nisan'in ilk haftası için bir haftalık aralık seçildi");
         // 6-) Yetişkin sayısı 1 artırılır ve yetişkin sayısının değiştiği kontrol edilir
-      WebElement kacKisiKonaklayacaksınızText=driver.findElement(By.xpath("//span[@class='sc-b2c3f6ee-21 bSPwxV']"));
-      highlightElement(driver,kacKisiKonaklayacaksınızText);
-      kacKisiKonaklayacaksınızText.click();
+        WebElement kacKisiKonaklayacaksınızText = driver.findElement(By.xpath("//span[@class='sc-b2c3f6ee-21 bSPwxV']"));
+        highlightElement(driver, kacKisiKonaklayacaksınızText);
+        kacKisiKonaklayacaksınızText.click();
         for (int i = 0; i < 1; i++) {
-           WebElement yetiskinSayisiArti=driver.findElement(By.xpath("//div[@class='sc-b2c3f6ee-14 dirCeL']//div[1]//div[1]//div[2]//button[2]//span[1]//span[1]//*[name()='svg']"));
-           highlightElement(driver,yetiskinSayisiArti);
-           yetiskinSayisiArti.click();
+            WebElement yetiskinSayisiArti = driver.findElement(By.xpath("//div[@class='sc-b2c3f6ee-14 dirCeL']//div[1]//div[1]//div[2]//button[2]//span[1]//span[1]//*[name()='svg']"));
+            highlightElement(driver, yetiskinSayisiArti);
+            yetiskinSayisiArti.click();
             WebElement yetiskinSayisiText = driver.findElement(By.xpath("(//span[@class='sc-423a98f0-2 kxWULs'])[1]"));
             Assert.assertEquals("3", yetiskinSayisiText.getText());
         }
@@ -90,9 +91,9 @@ public class Class01_TC01 extends TestBase {
         Assert.assertTrue(driver.getCurrentUrl().contains("antalya"));
 
         // 9-) "Diğer bölgeleri göster" alanında rastgele tıklama metotu kullaılarak bir seçim yapılır ve "()" içerisinde bulunan sayı kaydedilir
-      WebElement hepsiniGoster=driver.findElement(By.xpath("//div[@class='sc-aa1d9ceb-7 dVbmwW']"));
-      highlightElement(driver,hepsiniGoster);
-      hepsiniGoster.click();
+        WebElement hepsiniGoster = driver.findElement(By.xpath("//div[@class='sc-aa1d9ceb-7 dVbmwW']"));
+        highlightElement(driver, hepsiniGoster);
+        hepsiniGoster.click();
 
         List<WebElement> digerBolgeler = driver.findElements(By.xpath("//div[@class='sc-2569635-3 buefhp']//span/span/span"));
 
@@ -112,7 +113,7 @@ public class Class01_TC01 extends TestBase {
             /*
             Her seferinde "uygunAntalyaOtelFiyatlari"  webelementi görülmediği için try catch statementini kullanmak durumunda kaldım
 
-           **** BUG/ONERİ ****
+           **** Öneri ****
             Otel sayisi az olan yerleşim yerleri için de sayfanın altında çıkan otel sayisi ile ilgili bir text bulunabilir.
 
              */
@@ -121,7 +122,7 @@ public class Class01_TC01 extends TestBase {
             WebElement uygunOtelBilgilendirmeText = driver.findElement(By.xpath("//div[@class='sc-21021e1e-1 gPQAyQ']"));
             Actions actions = new Actions(driver);
             actions.scrollToElement(uygunOtelBilgilendirmeText).perform();
-            highlightElement(driver,uygunOtelBilgilendirmeText);
+            highlightElement(driver, uygunOtelBilgilendirmeText);
             System.out.println("uygunAntalyaOtelFiyatları = " + uygunOtelBilgilendirmeText.getText());
 
             String actualData = uygunOtelBilgilendirmeText.getText().split(" ")[9];
@@ -130,11 +131,12 @@ public class Class01_TC01 extends TestBase {
             // 11-) Kaydedilen değerin 8. adımda kaydedilen değerle eşit olduğu kontrol edilir.
             Assert.assertEquals(expectedData, actualData);
         } catch (Exception e) {
-            System.out.println("Uygun antalya otel fiyatlari yazisi görülmedi");
+
+            logger.warn("Uygun antalya otel fiyatlari yazisi görülmedi");
         }
 
         driver.quit();
-            logger.info("Kaydedilen değerin 8. adımda kaydedilen değerle eşit olduğu kontrol edildi ve quit işlemi yapıldı");
+        logger.info("Kaydedilen değerin 8. adımda kaydedilen değerle eşit olduğu kontrol edildi ve quit işlemi yapıldı");
     }
 
 

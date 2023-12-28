@@ -8,3 +8,23 @@
 28.12.2023 19:48:53 INFO  package01.Class01_TC01 "Ara" buton'nun görünürlüğü kontrol edildi
 28.12.2023 19:49:01 INFO  package01.Class01_TC01 "Diğer bölgeleri göster" alanında rastgele tıklama metotu kullaılarak bir seçim yapılır ve "()" içerisinde bulunan sayı kaydedildi
 28.12.2023 19:49:19 INFO  package01.Class01_TC01 Kaydedilen değerin 8. adımda kaydedilen değerle eşit olduğu kontrol edildi ve quit işlemi yapıldı
+28.12.2023 19:53:15 INFO  package01.Class01_TC01 https://www.setur.com.tr/ gidildi
+28.12.2023 19:53:15 INFO  package01.Class01_TC01 Açılan cookieler handle edildi
+28.12.2023 19:53:17 INFO  package01.Class01_TC01 Açılan reklamlar handle edildi
+28.12.2023 19:53:18 INFO  package01.Class01_TC01 Ana sayfada otel tabının default geldiği kontrol edildi
+28.12.2023 19:53:26 INFO  package01.Class01_TC01 Nereye gideceksiniz alanına dosyasından "Antalya" yazılır ve en üstteki Antalya seçeneğine tıklandı
+28.12.2023 19:53:32 INFO  package01.Class01_TC01 Tarih alanına Nisan'in ilk haftası için bir haftalık aralık seçildi
+28.12.2023 19:53:35 INFO  package01.Class01_TC01 Yetişkin sayısı 1 artırılır ve yetişkin sayısının değiştiği kontrol edildi
+28.12.2023 19:53:35 INFO  package01.Class01_TC01 "Ara" buton'nun görünürlüğü kontrol edildi
+28.12.2023 19:53:42 INFO  package01.Class01_TC01 "Diğer bölgeleri göster" alanında rastgele tıklama metotu kullaılarak bir seçim yapılır ve "()" içerisinde bulunan sayı kaydedildi
+28.12.2023 19:56:53 INFO  package01.Class01_TC01 https://www.setur.com.tr/ gidildi
+28.12.2023 19:56:54 INFO  package01.Class01_TC01 Açılan cookieler handle edildi
+28.12.2023 19:56:56 INFO  package01.Class01_TC01 Açılan reklamlar handle edildi
+28.12.2023 19:56:57 INFO  package01.Class01_TC01 Ana sayfada otel tabının default geldiği kontrol edildi
+28.12.2023 19:57:04 INFO  package01.Class01_TC01 Nereye gideceksiniz alanına dosyasından "Antalya" yazılır ve en üstteki Antalya seçeneğine tıklandı
+28.12.2023 19:57:11 INFO  package01.Class01_TC01 Tarih alanına Nisan'in ilk haftası için bir haftalık aralık seçildi
+28.12.2023 19:57:13 INFO  package01.Class01_TC01 Yetişkin sayısı 1 artırılır ve yetişkin sayısının değiştiği kontrol edildi
+28.12.2023 19:57:14 INFO  package01.Class01_TC01 "Ara" buton'nun görünürlüğü kontrol edildi
+28.12.2023 19:57:21 INFO  package01.Class01_TC01 "Diğer bölgeleri göster" alanında rastgele tıklama metotu kullaılarak bir seçim yapılır ve "()" içerisinde bulunan sayı kaydedildi
+28.12.2023 19:57:39 WARN  package01.Class01_TC01 Uygun antalya otel fiyatlari yazisi görülmedi
+28.12.2023 19:57:39 INFO  package01.Class01_TC01 Kaydedilen değerin 8. adımda kaydedilen değerle eşit olduğu kontrol edildi ve quit işlemi yapıldı
