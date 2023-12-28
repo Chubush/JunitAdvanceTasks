@@ -1,5 +1,7 @@
 package package01;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -12,22 +14,29 @@ import java.util.Random;
 
 public class Class01_TC01 extends TestBase {
 
-
+    Logger logger = LogManager.getLogger(Class01_TC01.class);
     @Test
     public void test01() {
 
 
         // 1-) https://www.setur.com.tr/ sayfasına gidilir
         driver.get("https://www.setur.com.tr/");
+        logger.info("https://www.setur.com.tr/ gidildi");
         // 2-) setur url'nin geldiği kontrol edilir.
         Assert.assertEquals("https://www.setur.com.tr/", driver.getCurrentUrl());
         cerezSavar();
+        logger.info("Açılan cookieler handle edildi");
         reklamSavar();
+        logger.info("Açılan reklamlar handle edildi");
 
 
+        // 3-) Ana sayfada otel tabının default geldiği kontrol edilir.
+        WebElement otelTabi=driver.findElement(By.xpath("//span[normalize-space()='Otel']"));
+        highlightElement(driver,otelTabi);
+        Assert.assertTrue(otelTabi.isEnabled());
+        logger.info("Ana sayfada otel tabının default geldiği kontrol edildi");
         // 3-) "Nereye gideceksiniz" alanına dosyasından "Antalya" yazılır ve en üstteki Antalya seçeneğine tıklanır
         WebElement nereyeGideceksinizTextBox = driver.findElement(By.xpath("//input[@placeholder='Otel Adı Veya Konum']"));
-
         nereyeGideceksinizTextBox.sendKeys("Antalya");
         nereyeGideceksinizTextBox.click();
         waitForSecond(3);
@@ -41,7 +50,7 @@ public class Class01_TC01 extends TestBase {
         WebElement tarihBolumu=driver.findElement(By.xpath("(//span[@class='sc-fd984615-0 cdgkri'])[2]"));
         highlightElement(driver,tarihBolumu);
         jsClick(tarihBolumu);
-
+        logger.info("Nereye gideceksiniz alanına dosyasından \"Antalya\" yazılır ve en üstteki Antalya seçeneğine tıklandı");
         // 4-) Tarih alanına Nisan'in ilk haftası için bir haftalık aralık seçilir
         WebElement sagaKaydır = driver.findElement(By.xpath("//button[@class='sc-8de9de7b-0 kCGMge sc-147d3380-2 cULZMP']//span[@class='sc-eb82d810-0 eClCrJ']//*[name()='svg']"));
         for (int i = 0; i < 3; i++) {
@@ -57,6 +66,7 @@ public class Class01_TC01 extends TestBase {
        WebElement yediNisan=driver.findElement(By.xpath("//td[@aria-label='Choose Pazar, 7 Nisan 2024 as your check-out date. It’s available.']"));
        highlightElement(driver,yediNisan);
        yediNisan.click();
+       logger.info("Tarih alanına Nisan'in ilk haftası için bir haftalık aralık seçildi");
         // 5-) Yetişkin sayısı 1 artırılır ve yetişkin sayısının değiştiği kontrol edilir
       WebElement kacKisiKonaklayacaksınızText=driver.findElement(By.xpath("//span[@class='sc-b2c3f6ee-21 bSPwxV']"));
       highlightElement(driver,kacKisiKonaklayacaksınızText);
@@ -68,14 +78,15 @@ public class Class01_TC01 extends TestBase {
             WebElement yetiskinSayisiText = driver.findElement(By.xpath("(//span[@class='sc-423a98f0-2 kxWULs'])[1]"));
             Assert.assertEquals("3", yetiskinSayisiText.getText());
         }
-
+        logger.info("Yetişkin sayısı 1 artırılır ve yetişkin sayısının değiştiği kontrol edildi");
 
         // 6-) "Ara" buton'nun görünürlüğü kontrol edilir
         WebElement araButton = driver.findElement(By.xpath("//span[normalize-space()='Ara']"));
         Assert.assertTrue(araButton.isDisplayed());
         jsClick(araButton);
+        logger.info("\"Ara\" buton'nun görünürlüğü kontrol edildi");
         // 7-) Açılan url içinde "antalya" kelimesi içerdiği kontrol edilir
-        waitForSecond(2);
+        waitForSecond(4);
         Assert.assertTrue(driver.getCurrentUrl().contains("antalya"));
 
         // 8-) "Diğer bölgeleri göster" alanında rastgele tıklama metotu kullaılarak bir seçim yapılır ve "()" içerisinde bulunan sayı kaydedilir
@@ -94,7 +105,7 @@ public class Class01_TC01 extends TestBase {
 
         String expectedData = digerBolgeler.get(rastgeleSayi).getText().replaceAll("[^0-9]", "");
         System.out.println(expectedData);
-
+        logger.info("\"Diğer bölgeleri göster\" alanında rastgele tıklama metotu kullaılarak bir seçim yapılır ve \"()\" içerisinde bulunan sayı kaydedildi");
 
         try {
             // 9-) Sayfanın altına bulunan "Antalya Otelleri ve en Uygun Antalya Otel Fiyatları" alanına kadar ekranda kaydırma yapılır,
@@ -115,7 +126,7 @@ public class Class01_TC01 extends TestBase {
 
             String actualData = uygunOtelBilgilendirmeText.getText().split(" ")[9];
             System.out.println(actualData);
-
+            logger.info("Sayfanın altına bulunan \"Antalya Otelleri ve en Uygun Antalya Otel Fiyatları\" alanına kadar ekranda kaydırma yapıldı");
             // 10-) Kaydedilen değerin 8. adımda kaydedilen değerle eşit olduğu kontrol edilir.
             Assert.assertEquals(expectedData, actualData);
         } catch (Exception e) {
@@ -123,6 +134,7 @@ public class Class01_TC01 extends TestBase {
         }
 
         driver.quit();
+            logger.info("Kaydedilen değerin 8. adımda kaydedilen değerle eşit olduğu kontrol edildi ve quit işlemi yapıldı");
     }
 
 
