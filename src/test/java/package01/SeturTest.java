@@ -12,9 +12,9 @@ import utilities.TestBase;
 import java.util.List;
 import java.util.Random;
 
-public class Class01_TC01 extends TestBase {
+public class SeturTest extends TestBase {
 
-    Logger logger = LogManager.getLogger(Class01_TC01.class);
+    Logger logger = LogManager.getLogger(SeturTest.class);
 
     @Test
     public void test01() {
